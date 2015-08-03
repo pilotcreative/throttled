@@ -8,7 +8,7 @@
 
   Install with [component(1)](http://component.io):
 
-    $ component install mnmly/throttled
+    $ component install porada/throttled
 
 ## Usage
 
@@ -24,14 +24,9 @@ throttled.on('resize', function(){
   console.log('clean resize');
 });
 
-
-// If you don't want this anymore.
+// If you don’t want this anymore.
 throttled.destroy();
 ```
-
-## Todo
-
-- Allow attatching `scroll` event other than `window`
 
 ## License
 

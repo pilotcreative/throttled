@@ -1,6 +1,6 @@
 {
   "name": "throttled",
-  "repo": "mnmly/throttled",
+  "repo": "porada/throttled",
   "description": "Throttled scroll and resize event on requestAnimationFrame",
   "version": "0.0.1",
   "keywords": [],

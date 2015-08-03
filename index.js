@@ -14,7 +14,7 @@ var requestAnimFrame = require('raf');
 module.exports = Throttled;
 
 
-function Throttled(){
+function Throttled() {
   this.state = { scroll: false, resize: false };
   bind.methods(this, 'capture', 'update');
   this._bind();
@@ -32,7 +32,7 @@ Emitter(Throttled.prototype);
  * Bind `resize` / `scroll` DOM events
  */
 
-Throttled.prototype._bind = function(){
+Throttled.prototype._bind = function() {
   events.bind(window, 'resize', this.capture);
   events.bind(window, 'scroll', this.capture);
 }
@@ -42,9 +42,9 @@ Throttled.prototype._bind = function(){
  * Callback to the DOM events
  */
 
-Throttled.prototype.capture = function(e){
-  for(var k in this.state){
-    if (k === e.type && !this.state[k]) {
+Throttled.prototype.capture = function(e) {
+  for ( var k in this.state ) {
+    if ( k === e.type && !this.state[k] ) {
       this.state[k] = true;
       requestAnimFrame(this.update);
       continue;
@@ -58,15 +58,13 @@ Throttled.prototype.capture = function(e){
  */
 
 Throttled.prototype.update = function() {
-  
-  for(var k in this.state){
-    if(this.state[k]){
+  for ( var k in this.state ) {
+    if ( this.state[k] ) {
       this.emit(k);
       this.state[k] = false;
       continue;
     }
   };
-
 };
 
 
@@ -75,10 +73,7 @@ Throttled.prototype.update = function() {
  */
 
 Throttled.prototype.destroy = function() {
-  
   events.unbind(window, 'resize');
   events.unbind(window, 'scroll');
   this.off();
-
 };
-

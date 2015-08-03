@@ -22,6 +22,10 @@ throttled.on('scroll', function(){
 throttled.on('resize', function(){
   console.log('clean resize');
 });
+
+throttled.on('wheel', function(){
+  console.log('clean wheel');
+});
 ```
 
 ## License

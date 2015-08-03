@@ -11,7 +11,7 @@ var requestAnimFrame = require('raf');
  */
 
 function Throttled() {
-  this.state = { scroll: false, resize: false };
+  this.state = { scroll: false, resize: false, wheel: false };
   this._bind();
 }
 
@@ -30,6 +30,7 @@ Emitter(Throttled.prototype);
 Throttled.prototype._bind = function() {
   window.addEventListener('resize', this.capture.bind(this), false);
   window.addEventListener('scroll', this.capture.bind(this), false);
+  window.addEventListener('wheel',  this.capture.bind(this), false);
 }
 
 

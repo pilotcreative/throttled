@@ -21,8 +21,7 @@
     <script type="text/javascript" src='../build/build.js'></script>
     <script type="text/javascript">
 
-      var Throttled = require('throttled');
-      var throttled = new Throttled(); // Probably better to be used as singleton.
+      var throttled = require('throttled');
 
       throttled.on('scroll', function(){
         console.log('clean scroll');
@@ -31,9 +30,6 @@
       throttled.on('resize', function(){
         console.log('clean resize');
       });
-
-      // If you don’t want this anymore.
-      throttled.destroy();
 
     </script>
   </body>

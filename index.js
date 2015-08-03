@@ -7,12 +7,10 @@ var events = require('event');
 var Emitter = require('emitter');
 var requestAnimFrame = require('raf');
 
+
 /**
- * Expose `Throttled`
+ * Define `Throttled`
  */
-
-module.exports = Throttled;
-
 
 function Throttled() {
   this.state = { scroll: false, resize: false };
@@ -69,11 +67,7 @@ Throttled.prototype.update = function() {
 
 
 /**
- * Unbind dom events and remove all listeners
+ * Expose a `Throttled` instance
  */
 
-Throttled.prototype.destroy = function() {
-  events.unbind(window, 'resize');
-  events.unbind(window, 'scroll');
-  this.off();
-};
+module.exports = new Throttled();

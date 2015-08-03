@@ -12,9 +12,8 @@
 
 ## Usage
 
-```javascript
-var Throttled = require('throttled');
-var throttled = new Throttled(); // Probably better to be used as singleton.
+```js
+var throttled = require('throttled');
 
 throttled.on('scroll', function(){
   console.log('clean scroll');
@@ -23,9 +22,6 @@ throttled.on('scroll', function(){
 throttled.on('resize', function(){
   console.log('clean resize');
 });
-
-// If you don’t want this anymore.
-throttled.destroy();
 ```
 
 ## License

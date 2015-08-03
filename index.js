@@ -2,8 +2,6 @@
  * Module dependencies
  */
 
-var bind = require('bind');
-var events = require('event');
 var Emitter = require('emitter');
 var requestAnimFrame = require('raf');
 
@@ -14,7 +12,6 @@ var requestAnimFrame = require('raf');
 
 function Throttled() {
   this.state = { scroll: false, resize: false };
-  bind.methods(this, 'capture', 'update');
   this._bind();
 }
 
@@ -31,8 +28,8 @@ Emitter(Throttled.prototype);
  */
 
 Throttled.prototype._bind = function() {
-  events.bind(window, 'resize', this.capture);
-  events.bind(window, 'scroll', this.capture);
+  window.addEventListener('resize', this.capture.bind(this), false);
+  window.addEventListener('scroll', this.capture.bind(this), false);
 }
 
 
@@ -44,7 +41,7 @@ Throttled.prototype.capture = function(e) {
   for ( var k in this.state ) {
     if ( k === e.type && !this.state[k] ) {
       this.state[k] = true;
-      requestAnimFrame(this.update);
+      requestAnimFrame(this.update.bind(this));
       continue;
     }
   }

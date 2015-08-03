@@ -6,9 +6,7 @@
   "keywords": [],
   "dependencies": {
     "component/raf": "*",
-    "component/event": "*",
-    "component/emitter": "*",
-    "ianstormtaylor/bind": "*"
+    "component/emitter": "*"
   },
   "development": {},
   "license": "MIT",
